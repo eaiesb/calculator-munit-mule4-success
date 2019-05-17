@@ -8,7 +8,8 @@ options {
 disableConcurrentBuilds()
 }
 stages {
-  
+stage("Mule4-Calculator-Dev") {
+stages {  
 stage("Build Mule Source Code") {
 steps {
           slackSend (color: "#f1502f", message: "Git URL is : ${env.GIT_URL}")
@@ -68,5 +69,7 @@ stage('Upload Files To Artifactory') {
 def buildsrc() {
 dir ('.' ) {
      sh '/devops/maven/apache-maven-3.3.9/bin/mvn clean package mule:deploy'
+}
+}
 }
 }
