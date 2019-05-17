@@ -14,7 +14,11 @@ stage("Build Mule Source Code") {
 steps {
           slackSend (color: "#f1502f", message: "Git URL is : ${env.GIT_URL}")
           slackSend (color: "add8e6", message: 'Calculator-munit-mule4 Deployment Started')
-          buildsrc() 
+			def buildsrc() {
+			dir ('.' ) {
+			sh '/devops/maven/apache-maven-3.3.9/bin/mvn clean package mule:deploy'
+}
+		  buildsrc() 
       }
 }
 
@@ -64,10 +68,7 @@ stage('Upload Files To Artifactory') {
           slackSend (color: "#32CD32", message: 'Calculator-munit-mule4 Deployment is Sucessful')
         }
   }
-  	 def buildsrc() {
-	 dir ('.' ) {
-     sh '/devops/maven/apache-maven-3.3.9/bin/mvn clean package mule:deploy'
-}
+
 }
 }
 }
