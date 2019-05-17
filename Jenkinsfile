@@ -71,9 +71,9 @@ stage('Upload Files To Artifactory') {
 }
 }
 }
+}
 	 def buildsrc() {
 	 dir ('.' ) {
      sh '/devops/maven/apache-maven-3.3.9/bin/mvn clean package mule:deploy'
-}
 }
 }
