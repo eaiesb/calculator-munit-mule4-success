@@ -74,7 +74,7 @@ stages {
 				steps {
 					timeout(time:2, unit:'DAYS')
 					{
-						input message: 'Waiting For Approval ??', submitter: 'manoj'
+						input message: 'Waiting For Approval ??', submitter: 'QAGroup'
 					}
 				}
 			}			
