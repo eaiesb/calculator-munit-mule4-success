@@ -138,15 +138,15 @@ stages {
 
 	stage("Mule4-Calculator-PROD") {
 		stages {  
-			stage("Build : Mule4-Calculator-PROD Source Code") {
-				stage ('PROD Approval'){
+			stage ('PROD Approval'){
 				steps {		
-						timeout(time:2, unit:'DAYS')
-						{
-							input message: 'Waiting For Approval ??', submitter: PRODGroup
-						}
-					}	
-				}						
+					timeout(time:2, unit:'DAYS')
+					{
+						input message: 'Waiting For Approval ??', submitter: PRODGroup
+					}
+				}	
+			}			
+			stage("Build : Mule4-Calculator-PROD Source Code") {					
 				steps {
 					slackSend (color: "#f1502f", message: "Git URL is : ${env.GIT_URL}")
 					slackSend (color: "add8e6", message: 'Calculator-munit-mule4 Deployment Started')
