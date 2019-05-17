@@ -8,9 +8,9 @@ options {
 disableConcurrentBuilds()
 }
 stages {
-	stage("Mule4-Calculator-Dev") {
+	stage("Mule4-Calculator-DEV") {
 		stages {  
-			stage("Build : Mule4-Calculator-Dev Source Code") {
+			stage("Build : Mule4-Calculator-DEV Source Code") {
 				steps {
 					slackSend (color: "#f1502f", message: "Git URL is : ${env.GIT_URL}")
 					slackSend (color: "add8e6", message: 'Calculator-munit-mule4 Deployment Started')
@@ -20,7 +20,7 @@ stages {
 				}
 			}	
 
-			stage('Upload Dev Artifacts To Artifactory') {
+			stage('Upload DEV Artifacts To Artifactory') {
 				steps {
 					script{
 					sh "echo ${env.GIT_URL} > /tmp/giturl.txt"
@@ -29,7 +29,7 @@ stages {
 					"files": [
 							{
 								"pattern": "**/*.jar",
-								"target": "generic-local/Calculator-munit-mule4_QA_$BUILD_NUMBER/Calculator-munit-mule4.jar"
+								"target": "generic-local/Calculator-munit-mule4_DEV_$BUILD_NUMBER/Calculator-munit-mule4.jar"
 							}
 							]
 					}"""                 
@@ -189,3 +189,4 @@ stages {
 	}	
 }
 }
+
