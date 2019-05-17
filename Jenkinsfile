@@ -70,12 +70,13 @@ stages {
 	
 	stage("Mule4-Calculator-QA") {
 		stages {
-			stage ('Approve?')
-				{
+			stage ('QA Approval'){
+				steps {
 					timeout(time:2, unit:'DAYS')
 					{
 						input message: 'Waiting For Approval ??', submitter: QAGroup
 					}
+				}
 			}			
 			stage("Build : Mule4-Calculator-QA Source Code") {
 				steps {
@@ -138,12 +139,13 @@ stages {
 	stage("Mule4-Calculator-PROD") {
 		stages {  
 			stage("Build : Mule4-Calculator-PROD Source Code") {
-				stage ('Approve?')
-					{
+				stage ('PROD Approval'){
+				steps {		
 						timeout(time:2, unit:'DAYS')
 						{
 							input message: 'Waiting For Approval ??', submitter: PRODGroup
 						}
+					}	
 				}						
 				steps {
 					slackSend (color: "#f1502f", message: "Git URL is : ${env.GIT_URL}")
