@@ -142,7 +142,7 @@ stages {
 				steps {		
 					timeout(time:2, unit:'DAYS')
 					{
-						input message: 'Waiting For Approval ??', submitter: 'PRODGroup''
+						input message: 'Waiting For Approval ??', submitter: 'PRODGroup'
 					}
 				}	
 			}			
