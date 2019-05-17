@@ -74,7 +74,7 @@ stages {
 				steps {
 					timeout(time:2, unit:'DAYS')
 					{
-						input message: 'Waiting For Approval ??', submitter: 'QAGroup'
+						input message: 'Waiting For Approval ??', ok: 'deploy to QA' , submitter: 'QAGroup'
 					}
 				}
 			}			
@@ -142,7 +142,7 @@ stages {
 				steps {		
 					timeout(time:2, unit:'DAYS')
 					{
-						input message: 'Waiting For Approval ??', submitter: 'PRODGroup'
+						input message: 'Waiting For Approval ??', ok: 'deploy to PROD' , submitter: 'PRODGroup'
 					}
 				}	
 			}			
